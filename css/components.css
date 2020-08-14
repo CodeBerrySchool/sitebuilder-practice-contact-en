@@ -1,0 +1,322 @@
+/**
+ * OVERVIEW
+ *
+ * This file describes the components that build up the site.
+ * From the inner layout to the font color, etc.
+ *
+ * You could see it before, but now, BEM-like (Block–Element–Modifier)
+ * thinking is even more apparent in the code. If you are hearing
+ * about BEM for the first time, we recommend reading the following section
+ * in Harry Roberts’s CSS guidelines: https://cssguidelin.es/#bem-like-naming.
+ */
+
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. BUTTONS
+ *
+ * 2. HEADER
+ *
+ * 3. NAVIGATION
+ *
+ * 4. CONTACT INFO
+ *
+ * 5. CONTACT FORM
+ *
+ * 6. FOOTER
+ */
+
+
+
+
+
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
+
+/**
+ * 1. We remove the border so it won’t bother us when doing the padding.
+ * Also, it is unnecessary to put borders on a full button. :)
+ *
+ */
+
+.button {
+  display:        inline-block;
+  border:         2px solid;
+  border-radius:  1.786rem;
+  text-align:     center;
+}
+
+  .button--primary-solid {
+    border:           0; /* [1] */
+    background-color: #6200ea;
+    color:            #ffffff;
+  }
+
+  .button--primary-solid:visited { color: #ffffff; }
+
+
+
+
+
+/*------------------------------------*\
+  #HEADER
+\*------------------------------------*/
+
+.header {
+  height:           80px;
+  background-color: #6200ea;
+}
+
+  .logo {
+    float:  left;
+    margin: 1.017rem 0;
+  }
+
+
+
+
+
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
+
+/**
+ * 1. This padding is needed for the site to be able to display
+ * the white bar of the hover effect in the correct place.
+ *
+ * 2. We give the link a bottom border that is invisible by default.
+ * We’ll use that later to make a grey bar appear when we hover over it.
+ * The border is invisible by default so that we only have to change its color,
+ * and so the interface doesn’t jump around as it would if we gave the hover
+ * the border.
+ *
+ * 3. This rule takes off the unnecessary left margin
+ * from the first link.
+ */
+
+.navigation { height: 80px; }
+
+  .navigation__link-container {
+    float:        right;
+    padding-top:  2.321rem;
+  }
+
+    .navigation__link {
+      vertical-align: middle;
+      padding-bottom: 2rem; /* [1] */
+      border-bottom:  4px solid; /* [2] */
+      border-color:   transparent; /* [2] */
+      margin-left:    4.571rem;
+      color:          #f4f3f5;
+      opacity:        0.65;
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    a.navigation__link:first-child { margin-left: 0; } /* [3] */
+
+    .navigation__link:visited { color: #f4f3f5; }
+
+    .navigation__link:hover {
+      border-color:   #ffffff;
+      color:          #ffffff;
+      opacity:        1;
+    }
+
+
+
+
+
+/*------------------------------------*\
+  #CONTACT INFO
+\*------------------------------------*/
+
+/**
+ * 1. Anchor elements are inline elements by default. If we want to display
+ * them adjacent to each other, and want to control the values of margins,
+ * paddings etc., we have to convert them into block or inline-block elements.
+ *
+ * 2. We have to overwrite the default heading bottom margin.
+ *
+ * 3. This ruleset creates the circular background of the social media icons.
+ *
+ * 4. If an element needs a perfect circular border, it is important to
+ * make its width and height the same size. Otherwise, we will only get an oval
+ * shape. The size of the paddings also have to be the same on either side.
+ *
+ * 5. You can make a perfect circular border with a 50% border radius
+ * if the width and height is the same.
+ *
+ * 6. This ruleset controls the FontAwesome icons. It removes the
+ * extra width and height that’s on them by default, and
+ * sets their size correctly.
+ */
+
+.contact-info {
+  padding:          4.286rem;
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+}
+
+  .contact-info__map {
+    width:         100%;
+    height:        280px;
+    border-radius: 1.071rem;
+  }
+
+  .contact-info__map,
+  .contact-info__address,
+  .contact-info__phone-email {
+    margin-bottom: 2.143rem;
+  }
+
+  .contact-info__social-media { margin-bottom: .357rem; }
+
+    .contact-info__heading,
+    .contact-info__link {
+      color: #6200ea;
+    }
+
+    .contact-info__link {
+      display:        block; /* [1] */
+      margin-bottom:  .714rem;
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    .contact-info__heading {
+      margin-bottom:  .7143rem; /* [2] */
+      font-size:      .857rem;
+      font-weight:    bold;
+      text-transform: uppercase;
+      letter-spacing: .171rem;
+    }
+
+    .contact-info__social-media-link { /* [3] */
+      display:          inline-block; /* [1] */
+      width:            2.857rem; /* [4] */
+      height:           2.857rem; /* [4] */
+      padding:          .714rem; /* [4] */
+      border-radius:    50%; /* [5] */
+      margin-right:     .714rem;
+      background-color: #6200ea;
+      text-align:       center;
+    }
+
+      .contact-info__social-media-icon { /* [6] */
+        color:          #ffffff;
+        font-size:      1.4285rem;
+      }
+
+
+
+
+
+/*------------------------------------*\
+  #CONTACT FORM
+\*------------------------------------*/
+
+/**
+ * 1. Inputs are inline elements by default. Before we start manipulating
+ * the values of margins, paddings, etc., we have to convert them into
+ * block or inline-block elements.
+ *
+ * 2. First, we make the inherent border of the input zero.
+ *
+ * 3. We give the input a bottom border that is invisible by default.
+ * We’ll use that later to make a purple bar appear on focus.
+ * The border is invisible by default so that we only have to change its color,
+ * and so the interface doesn’t jump around as it would if we gave the focus
+ * the border.
+ *
+ * 4. This ruleset formats placeholder texts.
+ *
+ * 5. We can give textarea elements width and height. Here,
+ * we are using the former.
+ *
+ * 6. This ruleset formats the submit button by adding to the
+ * .button and .button--primary-solid rules.
+ */
+
+.contact-form {
+  padding:          4.286rem;
+  border-radius:    1.071rem;
+  background-color: #ffffff;
+}
+
+  .contact-form__header { margin-bottom: 1.429rem; }
+
+    .contact-form__title { margin-bottom: .7143rem}
+
+    .contact-form__cta {
+      font-size:   1.429rem;
+      line-height: 30px;
+    }
+
+  .contact-form__input-field {
+    display:          block; /* [1] */
+    width:            100%;
+    padding:          1.1428rem 0 .9286rem 1.7143rem;
+    border:           0; /* [2] */
+    border-bottom:    3px solid; /* [3] */
+    border-color:     transparent; /* [3] */
+    margin-bottom:    1.071rem;
+    background-color: #f4f3f5;
+    outline:          none;
+  }
+
+    .contact-form__input-field:focus { border-bottom-color: #6200ea; }
+
+    .contact-form__input-field::placeholder { /* [4] */
+      font-weight: bold;
+      opacity:     .25;
+    }
+
+  .contact-form__input-field--textarea {
+    height:        150px; /* [5] */
+    margin-bottom: 1.4286rem;
+  }
+
+  .contact-form__submit { /* [6] */
+    width:          100%;
+    padding:        1.286rem 0;
+    margin-bottom:  0;
+    font-size:      .857rem;
+    font-weight:    bold;
+    text-transform: uppercase;
+    letter-spacing: .171rem;
+  }
+
+
+
+
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+.footer {
+  height:           7.143rem;
+  padding:          3.071rem 0 3rem 0;
+  background-color: #211138;
+  text-align:       center;
+}
+
+  .footer__copyright {
+    color:          #b2acba;
+    font-size:      .857rem;
+    font-weight:    bold;
+    text-transform: uppercase;
+    letter-spacing: .171rem;
+  }
+
+  .footer__brand-name,
+  .footer__student-name {
+    color: #6200ea;
+  }
