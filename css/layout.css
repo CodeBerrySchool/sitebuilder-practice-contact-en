@@ -1,28 +1,28 @@
 /**
- * ÁTTEKINTÉS
+ * OVERVIEW
  *
- * Ez a fájl kezeli az oldal elrendezését (layoutját). Ahelyett, hogy egyenként,
- * a komponensekhez kötjük az elhelyezésüket, készítünk egy külön rendszert,
- * amelynek semmi más dolga nincs, mint megmondani egyes elemeknek, hogy
- * mekkorák legyenek, és hol jelenjenek meg.
+ * This file handles the layout of the website. Instead of setting up
+ * the components’ layouts one by one, we create a separate system
+ * which has only one goal—telling each element
+ * what size they should be and where they should appear.
  *
- * Az itt deklarált classokat aztán ráhívhatjuk bármilyen containerre,
- * hogy az a megfelelő méretet öltse, és a megfelelő módon viselkedjen.
+ * Classes declared here can be invoked on any container
+ * to make them the right size and make them behave the right way.
  */
 
 
 /**
- * TARTALOMJEGYZÉK
+ * TABLE OF CONTENTS
  *
- * ELRENDEZÉS
- * Elemek.................Magukra a containerekre vonatkozó méretszabályok.
- * Módosítók..............Az elrendezést módosító szabályok, pl. floatok.
+ * LAYOUT
+ * Elements.................The size rules of containers.
+ * Modifiers..............The rules that modify the layout, e.g., floats.
  *
- * TÉRKÖZÖK
- * Vízszintes térközök....Containerek közötti vízszintes whitespace szabályai.
+ * GUTTERS
+ * Horizontal gutters....The rules of horizontal whitespace between containers.
  *
- * HELPEREK
- * Clearfix...............Floatolt containerekre hívható class.
+ * HELPERS
+ * Clearfix...............A class that can be invoked on floated containers.
  */
 
 
@@ -30,21 +30,22 @@
 
 
 /*------------------------------------*\
-  #ELRENDEZÉS
+  #LAYOUT
 \*------------------------------------*/
 
 /**
- * 1. Amikor két container között függőleges üres térre (gutterre) van szükség,
- * ezeket a classokat használjuk. Automatikusan akkorára méretezik magukat,
- * hogy kihagyják a két elem közti whitespace felét. Így amikor a két elem
- * egymás mellé kerül, kettejük között automatikusan megjelenik a megfelelő
- * mértékű térköz. A teljes hatáshoz az egyik elemet balra, a másikat jobbra
- * kell floatolnunk a megfelelő class-okkal.
+ * 1. When we need a vertical gutter between two containers
+ * we use these classes. They scale themselves automatically so that
+ * they skip half of the whitespace between two elements. When two elements
+ * are placed next to each other, an appropriately sized gutter appears
+ * between them automatically. To get the full effect, we need to float
+ * one element to the left, and the other to the right with the right classes.
  *
- * 2. Ha egy elemet vízszintesen középre kell rendezned, használd ezt a class-t.
+ * 2. If you need to center an element horizontally, use this class.
  *
- * 3. Ha elemeket floatolnod kell, ezek a class-ok a barátaid. Ne feledd a
- * containerre meghívni a .clearfix class-t a HELPEREK szekcióból.
+ * 3. If you need to float an element, these classes are your friends.
+ * Don’t forget to invoke the .clearfix class
+ * from the HELPERS section on the container.
  */
 
 .layout__item--full-width               { width: 100%; }
@@ -74,7 +75,7 @@
 
 
 /*------------------------------------*\
-  #TÉRKÖZÖK
+  #GUTTERS
 \*------------------------------------*/
 
 .gutter--horizontal-small { margin-bottom: 2.142rem; }
@@ -86,7 +87,7 @@
 
 
 /*------------------------------------*\
-  #HELPEREK
+  #HELPERS
 \*------------------------------------*/
 
 .clearfix:after {
